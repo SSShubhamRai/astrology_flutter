@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../theme/app_colors.dart'; // Centralized AppColors import kiya gaya hai
 
 class CtaBannerSection extends StatelessWidget {
   const CtaBannerSection({super.key});
@@ -10,11 +11,11 @@ class CtaBannerSection extends StatelessWidget {
       width: double.infinity,
       constraints: const BoxConstraints(minHeight: 450),
       decoration: BoxDecoration(
-        color: const Color(0xFF3D1C06), // Fallback deep mahogany color
+        color: AppColors.primaryBrown, // Centralized primary token fallback
         image: const DecorationImage(
           image: AssetImage('assets/images/cta_bg.png'),
           fit: BoxFit.cover,
-          alignment: Alignment.centerRight, // Image right side align rahegi
+          alignment: Alignment.centerRight,
         ),
       ),
       child: Container(
@@ -22,8 +23,8 @@ class CtaBannerSection extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              const Color(0xFF3D1C06),
-              const Color(0xFF3D1C06).withValues(alpha: 0.85),
+              AppColors.primaryBrown,
+              AppColors.primaryBrown.withValues(alpha: 0.85),
               Colors.transparent,
             ],
             stops: const [0.0, 0.5, 1.0],
@@ -42,19 +43,19 @@ class CtaBannerSection extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
                 decoration: BoxDecoration(
-                  border: Border.all(color: const Color(0xFFD4A373).withValues(alpha: 0.6)),
+                  border: Border.all(color: AppColors.warmGold.withValues(alpha: 0.6)),
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.black.withValues(alpha: 0.3),
                 ),
                 child: const Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(Icons.auto_awesome, color: Color(0xFFD4A373), size: 14),
+                    Icon(Icons.auto_awesome, color: AppColors.warmGold, size: 14),
                     SizedBox(width: 8),
                     Text(
                       'TAKE THE NEXT STEP',
                       style: TextStyle(
-                        color: Color(0xFFE6CCB2),
+                        color: AppColors.borderBrown,
                         fontSize: 11,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1.2,
@@ -82,7 +83,7 @@ class CtaBannerSection extends StatelessWidget {
                 'Slots fill up quickly — don’t delay getting the clarity and answers you’ve been waiting for. Book your consultation with our expert team today.',
                 style: TextStyle(
                   fontSize: 15,
-                  color: Color(0xFFE6CCB2),
+                  color: AppColors.borderBrown,
                   height: 1.6,
                 ),
               ),
@@ -91,15 +92,11 @@ class CtaBannerSection extends StatelessWidget {
               // CTA Button
               Container(
                 decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFFE9C46A), Color(0xFFD4A373)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
+                  gradient: AppColors.goldGradient, // Centralized gold gradient token
                   borderRadius: BorderRadius.circular(30),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0xFFD4A373).withValues(alpha: 0.4),
+                      color: AppColors.warmGold.withValues(alpha: 0.4),
                       blurRadius: 12,
                       offset: const Offset(0, 4),
                     ),
@@ -109,7 +106,7 @@ class CtaBannerSection extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
                     shadowColor: Colors.transparent,
-                    foregroundColor: const Color(0xFF5B2C0E),
+                    foregroundColor: AppColors.deepBrown,
                     padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 18),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),

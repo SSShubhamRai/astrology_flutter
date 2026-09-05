@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import '../theme/app_colors.dart'; // Centralized AppColors import kiya gaya hai
 
 class AppFooter extends StatelessWidget {
   const AppFooter({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final primaryColor = colorScheme.primary;
+    const primaryColor = AppColors.primaryBrown; // Centralized primary token
 
     return Container(
       width: double.infinity,
-      color: primaryColor.withValues(alpha: 0.12), // Rich theme-tinted background matching your palette
+      color: primaryColor.withValues(alpha: 0.12), // Rich theme-tinted background
       padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 40),
       child: Center(
         child: ConstrainedBox(
@@ -26,7 +26,7 @@ class AppFooter extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        _buildBrandInfo(colorScheme),
+                        _buildBrandInfo(),
                         _buildLinksGroup('Quick Links', ['Home', 'Reports', 'Consultation', 'Spotlight'], primaryColor),
                         _buildLinksGroup('Legal & Privacy', ['Terms of Service', 'Privacy Policy', 'Refund Policy', 'Disclaimer'], primaryColor),
                         _buildLinksGroup('Support', ['Contact Us', 'FAQ', 'Help Center', 'My Account'], primaryColor),
@@ -36,7 +36,7 @@ class AppFooter extends StatelessWidget {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _buildBrandInfo(colorScheme),
+                        _buildBrandInfo(),
                         const SizedBox(height: 40),
                         _buildLinksGroup('Quick Links', ['Home', 'Reports', 'Consultation', 'Spotlight'], primaryColor),
                         const SizedBox(height: 30),
@@ -86,10 +86,10 @@ class AppFooter extends StatelessWidget {
     );
   }
 
-  Widget _buildBrandInfo(ColorScheme colorScheme) {
+  Widget _buildBrandInfo() {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 320),
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
@@ -98,14 +98,14 @@ class AppFooter extends StatelessWidget {
               fontFamily: 'serif',
               fontSize: 28,
               fontWeight: FontWeight.bold,
-              color: colorScheme.primary,
+              color: AppColors.primaryBrown,
             ),
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           Text(
             'Your ultimate destination for authentic Vedic astrology, numerology insights, and expert consultations to navigate your life path.',
             style: TextStyle(
-              color: colorScheme.primary.withValues(alpha: 0.8),
+              color: AppColors.subtitleBrown,
               fontSize: 14,
               height: 1.6,
             ),
@@ -135,7 +135,7 @@ class AppFooter extends StatelessWidget {
                 child: Text(
                   link,
                   style: TextStyle(
-                    color: primaryColor.withValues(alpha: 0.75),
+                    color: AppColors.subtitleBrown,
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
                   ),

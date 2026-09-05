@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../theme/app_colors.dart'; // Centralized AppColors import kiya gaya hai
 
 class ExpertReportSection extends StatelessWidget {
   const ExpertReportSection({super.key});
@@ -7,7 +8,7 @@ class ExpertReportSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: const Color(0xFFFDFBF7),
+      color: AppColors.creamBg, // Centralized cream background tone
       padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 40),
       child: Center(
         child: ConstrainedBox(
@@ -26,7 +27,7 @@ class ExpertReportSection extends StatelessWidget {
                     height: 140,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      border: Border.all(color: const Color(0xFFE6CCB2), width: 3),
+                      border: Border.all(color: AppColors.borderBrown, width: 3),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withValues(alpha: 0.08),
@@ -40,7 +41,7 @@ class ExpertReportSection extends StatelessWidget {
                         'assets/images/shubham .jpg',
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {
-                          return const Icon(Icons.person, size: 70, color: Color(0xFF5B2C0E));
+                          return const Icon(Icons.person, size: 70, color: AppColors.deepBrown);
                         },
                       ),
                     ),
@@ -49,7 +50,7 @@ class ExpertReportSection extends StatelessWidget {
                   const Text(
                     'Shubham Kumar',
                     style: TextStyle(
-                      color: Color(0xFF5B2C0E),
+                      color: AppColors.deepBrown,
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
@@ -58,7 +59,7 @@ class ExpertReportSection extends StatelessWidget {
                   const Text(
                     'Numerology Expert',
                     style: TextStyle(
-                      color: Color(0xFF8C7A6B),
+                      color: AppColors.subtitleBrown,
                       fontWeight: FontWeight.w500,
                       fontSize: 13,
                     ),
@@ -72,13 +73,13 @@ class ExpertReportSection extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Everything You Need,\nIn One Report',
                       style: TextStyle(
                         fontFamily: 'serif',
                         fontSize: 40,
                         fontWeight: FontWeight.bold,
-                        color: const Color(0xFF5B2C0E),
+                        color: AppColors.deepBrown,
                         height: 1.15,
                       ),
                     ),
@@ -87,7 +88,7 @@ class ExpertReportSection extends StatelessWidget {
                       'Get personalized insights across the most important areas of your life through your unique numbers.',
                       style: TextStyle(
                         fontSize: 15,
-                        color: Color(0xFF7F5539),
+                        color: AppColors.subtitleBrown,
                         height: 1.5,
                       ),
                     ),
@@ -122,17 +123,17 @@ class ExpertReportSection extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(30),
-        border: Border.all(color: const Color(0xFFD4A373).withValues(alpha: 0.5), width: 1.2),
+        border: Border.all(color: AppColors.warmGold.withValues(alpha: 0.5), width: 1.2),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 16, color: const Color(0xFF5B2C0E)),
+          Icon(icon, size: 16, color: AppColors.deepBrown),
           const SizedBox(width: 8),
           Text(
             label,
             style: const TextStyle(
-              color: Color(0xFF5B2C0E),
+              color: AppColors.deepBrown,
               fontWeight: FontWeight.w600,
               fontSize: 13,
             ),

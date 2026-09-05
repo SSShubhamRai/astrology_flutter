@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import '../theme/app_colors.dart'; // Centralized AppColors import kiya gaya hai
 
 class InsightsVideoSection extends StatefulWidget {
   const InsightsVideoSection({super.key});
@@ -14,7 +15,6 @@ class _InsightsVideoSectionState extends State<InsightsVideoSection> {
   @override
   void initState() {
     super.initState();
-    // Aap yahan apni section ki koi bhi video file laga sakte hain
     _controller = VideoPlayerController.asset('assets/videos/homevideo.mp4')
       ..initialize().then((_) {
         _controller.play();
@@ -32,12 +32,9 @@ class _InsightsVideoSectionState extends State<InsightsVideoSection> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colorScheme = theme.colorScheme;
-
     return Container(
       width: double.infinity,
-      color: theme.scaffoldBackgroundColor,
+      color: AppColors.creamBg, // Centralized cream background tone
       padding: const EdgeInsets.symmetric(vertical: 70, horizontal: 40),
       child: Center(
         child: ConstrainedBox(
@@ -76,7 +73,7 @@ class _InsightsVideoSectionState extends State<InsightsVideoSection> {
                                 child: VideoPlayer(_controller),
                               ),
                             )
-                          : Container(color: colorScheme.primary.withValues(alpha: 0.2)),
+                          : Container(color: AppColors.primaryBrown.withValues(alpha: 0.2)),
                       
                       // Bottom Floating Chip inside video ("Discover Your Numbers")
                       Positioned(
@@ -88,15 +85,15 @@ class _InsightsVideoSectionState extends State<InsightsVideoSection> {
                             color: Colors.white.withValues(alpha: 0.9),
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          child: Row(
+                          child: const Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Icon(Icons.auto_awesome, size: 16, color: colorScheme.primary),
-                              const SizedBox(width: 8),
+                              Icon(Icons.auto_awesome, size: 16, color: AppColors.primaryBrown),
+                              SizedBox(width: 8),
                               Text(
                                 'Discover Your Numbers',
                                 style: TextStyle(
-                                  color: colorScheme.primary,
+                                  color: AppColors.primaryBrown,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 13,
                                 ),
@@ -116,40 +113,40 @@ class _InsightsVideoSectionState extends State<InsightsVideoSection> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'PERSONALIZED INSIGHTS',
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1.5,
-                        color: colorScheme.secondary,
+                        color: AppColors.warmGold, // Centralized warm gold color
                       ),
                     ),
                     const SizedBox(height: 12),
-                    Text(
+                    const Text(
                       'What Your Numbers\nReveal About You',
                       style: TextStyle(
                         fontFamily: 'serif',
                         fontSize: 38,
                         fontWeight: FontWeight.bold,
-                        color: colorScheme.primary,
+                        color: AppColors.primaryBrown, // Centralized primary brown color
                         height: 1.15,
                       ),
                     ),
                     const SizedBox(height: 16),
-                    Text(
+                    const Text(
                       'Discover meaningful insights about your personality, relationships, career and life purpose through your personalized numerology report.',
                       style: TextStyle(
                         fontSize: 15,
-                        color: colorScheme.onSurface.withValues(alpha: 0.75),
+                        color: AppColors.subtitleBrown, // Centralized subtitle tone
                         height: 1.5,
                       ),
                     ),
                     const SizedBox(height: 28),
 
-                    // Feature Check List
-                    const Column(
-                      children: [
+                    // Feature Check List (Removed 'const' keyword before children list to fix runtime parameter error)
+                    Column(
+                      children: const [
                         _CheckListItem(text: 'Personality & Core Strengths'),
                         SizedBox(height: 12),
                         _CheckListItem(text: 'Love, Marriage & Relationships'),
@@ -168,11 +165,11 @@ class _InsightsVideoSectionState extends State<InsightsVideoSection> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
-                        side: BorderSide(color: colorScheme.primary.withValues(alpha: 0.3), width: 1.5),
-                        backgroundColor: const Color(0xFFFDFBF7),
+                        side: BorderSide(color: AppColors.primaryBrown.withValues(alpha: 0.3), width: 1.5),
+                        backgroundColor: AppColors.creamBg,
                       ),
                       onPressed: () {},
-                      child: Row(
+                      child: const Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
@@ -180,11 +177,11 @@ class _InsightsVideoSectionState extends State<InsightsVideoSection> {
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
-                              color: colorScheme.primary,
+                              color: AppColors.primaryBrown,
                             ),
                           ),
-                          const SizedBox(width: 10),
-                          Icon(Icons.arrow_forward, size: 18, color: colorScheme.primary),
+                          SizedBox(width: 10),
+                          Icon(Icons.arrow_forward, size: 18, color: AppColors.primaryBrown),
                         ],
                       ),
                     ),
@@ -206,25 +203,23 @@ class _CheckListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-
     return Row(
       children: [
         Container(
           padding: const EdgeInsets.all(4),
           decoration: BoxDecoration(
-            color: colorScheme.secondary.withValues(alpha: 0.15),
+            color: AppColors.warmGold.withValues(alpha: 0.15),
             shape: BoxShape.circle,
           ),
-          child: Icon(Icons.check, size: 16, color: colorScheme.secondary),
+          child: const Icon(Icons.check, size: 16, color: AppColors.warmGold),
         ),
         const SizedBox(width: 14),
         Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.w600,
-            color: colorScheme.primary,
+            color: AppColors.primaryBrown,
           ),
         ),
       ],

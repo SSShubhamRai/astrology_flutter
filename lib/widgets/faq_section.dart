@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../theme/app_colors.dart'; // Centralized AppColors import kiya gaya hai
 
 class FaqSection extends StatefulWidget {
   const FaqSection({super.key});
@@ -36,11 +37,9 @@ class _FaqSectionState extends State<FaqSection> {
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
-
     return Container(
       width: double.infinity,
-      color: Theme.of(context).scaffoldBackgroundColor,
+      color: AppColors.creamBg, // Centralized cream background tone
       padding: const EdgeInsets.symmetric(vertical: 70, horizontal: 24),
       child: Center(
         child: ConstrainedBox(
@@ -49,24 +48,24 @@ class _FaqSectionState extends State<FaqSection> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // Section Subtitle
-              Text(
+              const Text(
                 'GOT QUESTIONS?',
                 style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.8,
-                  color: colorScheme.secondary,
+                  color: AppColors.warmGold, // Centralized warm gold color
                 ),
               ),
               const SizedBox(height: 8),
               // Section Title
-              Text(
+              const Text(
                 'Frequently Asked Questions',
                 style: TextStyle(
                   fontFamily: 'serif',
                   fontSize: 36,
                   fontWeight: FontWeight.bold,
-                  color: colorScheme.primary,
+                  color: AppColors.primaryBrown, // Centralized primary brown color
                 ),
               ),
               const SizedBox(height: 40),
@@ -83,8 +82,12 @@ class _FaqSectionState extends State<FaqSection> {
                   return Container(
                     margin: const EdgeInsets.only(bottom: 16),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: isExpanded ? const Color(0xFFFFFBF0) : Colors.white,
                       borderRadius: BorderRadius.circular(16),
+                      border: Border.all(
+                        color: isExpanded ? AppColors.warmGold : AppColors.warmGold.withValues(alpha: 0.3),
+                        width: isExpanded ? 1.5 : 1.0,
+                      ),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withValues(alpha: 0.05),
@@ -105,21 +108,21 @@ class _FaqSectionState extends State<FaqSection> {
                         },
                         title: Text(
                           faq['question']!,
-                          style: TextStyle(
-                            color: colorScheme.primary,
+                          style: const TextStyle(
+                            color: AppColors.primaryBrown,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        iconColor: colorScheme.primary,
-                        collapsedIconColor: colorScheme.primary.withValues(alpha: 0.7),
+                        iconColor: AppColors.primaryBrown,
+                        collapsedIconColor: AppColors.primaryBrown.withValues(alpha: 0.7),
                         childrenPadding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
                         expandedCrossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             faq['answer']!,
-                            style: TextStyle(
-                              color: colorScheme.primary.withValues(alpha: 0.8),
+                            style: const TextStyle(
+                              color: AppColors.subtitleBrown,
                               fontSize: 15,
                               height: 1.5,
                             ),

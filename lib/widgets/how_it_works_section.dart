@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../theme/app_colors.dart'; // Centralized AppColors import kiya gaya hai
 
 class HowItWorksSection extends StatefulWidget {
   const HowItWorksSection({super.key});
@@ -24,19 +25,19 @@ class _HowItWorksSectionState extends State<HowItWorksSection> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
             decoration: BoxDecoration(
-              border: Border.all(color: const Color(0xFFD4A373).withValues(alpha: 0.6)),
+              border: Border.all(color: AppColors.warmGold.withValues(alpha: 0.6)),
               borderRadius: BorderRadius.circular(20),
-              color: const Color(0xFF5B2C0E).withValues(alpha: 0.05),
+              color: AppColors.deepBrown.withValues(alpha: 0.05),
             ),
             child: const Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.auto_awesome, color: Color(0xFF5B2C0E), size: 14),
+                Icon(Icons.auto_awesome, color: AppColors.deepBrown, size: 14),
                 SizedBox(width: 8),
                 Text(
                   'SIMPLE PROCESS',
                   style: TextStyle(
-                    color: Color(0xFF5B2C0E),
+                    color: AppColors.deepBrown,
                     fontSize: 11,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1.2,
@@ -53,7 +54,7 @@ class _HowItWorksSectionState extends State<HowItWorksSection> {
             style: GoogleFonts.playfairDisplay(
               fontSize: 42,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF5B2C0E),
+              color: AppColors.deepBrown,
             ),
           ),
           const SizedBox(height: 12),
@@ -63,7 +64,7 @@ class _HowItWorksSectionState extends State<HowItWorksSection> {
             'Get connected with expert astrologers in just 3 simple steps.',
             style: TextStyle(
               fontSize: 15,
-              color: Color(0xFF7F4F24),
+              color: AppColors.subtitleBrown,
             ),
           ),
           const SizedBox(height: 50),
@@ -116,15 +117,15 @@ class _HowItWorksSectionState extends State<HowItWorksSection> {
             duration: const Duration(milliseconds: 250),
             padding: const EdgeInsets.all(30),
             decoration: BoxDecoration(
-              color: isSelected ? const Color(0xFFFFFBF0) : const Color(0xFFFDFBF7),
+              color: isSelected ? const Color(0xFFFFFBF0) : AppColors.creamBg,
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
-                color: isSelected ? const Color(0xFFD4A373) : const Color(0xFFD4A373).withValues(alpha: 0.3),
+                color: isSelected ? AppColors.warmGold : AppColors.warmGold.withValues(alpha: 0.3),
                 width: isSelected ? 1.8 : 1.0,
               ),
               boxShadow: [
                 BoxShadow(
-                  color: isSelected ? const Color(0xFFD4A373).withValues(alpha: 0.15) : Colors.black.withValues(alpha: 0.03),
+                  color: isSelected ? AppColors.warmGold.withValues(alpha: 0.15) : Colors.black.withValues(alpha: 0.03),
                   blurRadius: isSelected ? 20 : 15,
                   offset: const Offset(0, 6),
                 ),
@@ -137,13 +138,13 @@ class _HowItWorksSectionState extends State<HowItWorksSection> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
                   decoration: BoxDecoration(
-                    color: isSelected ? const Color(0xFFD4A373) : const Color(0xFF5B2C0E),
+                    color: isSelected ? AppColors.warmGold : AppColors.deepBrown,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
                     number,
                     style: TextStyle(
-                      color: isSelected ? const Color(0xFF5B2C0E) : Colors.white,
+                      color: isSelected ? AppColors.deepBrown : Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
@@ -157,7 +158,7 @@ class _HowItWorksSectionState extends State<HowItWorksSection> {
                   style: GoogleFonts.playfairDisplay(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xFF5B2C0E),
+                    color: AppColors.deepBrown,
                   ),
                 ),
                 const SizedBox(height: 12),

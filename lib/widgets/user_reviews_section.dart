@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../theme/app_colors.dart'; // Centralized AppColors import kiya gaya hai
 
 class UserReviewsSection extends StatefulWidget {
   const UserReviewsSection({super.key});
@@ -110,22 +112,19 @@ class _UserReviewsSectionState extends State<UserReviewsSection> {
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
-
     return Container(
       width: double.infinity,
-      color: Theme.of(context).scaffoldBackgroundColor,
+      color: AppColors.creamBg, // Centralized cream background tone
       padding: const EdgeInsets.symmetric(vertical: 70),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             'What Our Users Say',
-            style: TextStyle(
-              fontFamily: 'serif',
+            style: GoogleFonts.playfairDisplay(
               fontSize: 40,
               fontWeight: FontWeight.bold,
-              color: colorScheme.primary,
+              color: AppColors.primaryBrown, // Centralized primary brown color
             ),
           ),
           const SizedBox(height: 40),
@@ -179,8 +178,6 @@ class _ReviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
-
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(20),
@@ -190,6 +187,7 @@ class _ReviewCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: AppColors.warmGold.withValues(alpha: 0.3)),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.06),
@@ -216,8 +214,8 @@ class _ReviewCard extends StatelessWidget {
             Expanded(
               child: Text(
                 reviewText,
-                style: TextStyle(
-                  color: colorScheme.primary.withValues(alpha: 0.85),
+                style: const TextStyle(
+                  color: AppColors.subtitleBrown,
                   fontSize: 15,
                   fontStyle: FontStyle.italic,
                   height: 1.4,
@@ -231,11 +229,11 @@ class _ReviewCard extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 18,
-                  backgroundColor: colorScheme.primary.withValues(alpha: 0.1),
+                  backgroundColor: AppColors.primaryBrown.withValues(alpha: 0.1),
                   child: Text(
                     initial,
-                    style: TextStyle(
-                      color: colorScheme.primary,
+                    style: const TextStyle(
+                      color: AppColors.primaryBrown,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -246,8 +244,8 @@ class _ReviewCard extends StatelessWidget {
                   children: [
                     Text(
                       name,
-                      style: TextStyle(
-                        color: colorScheme.primary,
+                      style: const TextStyle(
+                        color: AppColors.primaryBrown,
                         fontWeight: FontWeight.bold,
                         fontSize: 14,
                       ),
@@ -281,8 +279,6 @@ class _ZoomedReviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
-
     return Material(
       color: Colors.transparent,
       child: ConstrainedBox(
@@ -292,6 +288,7 @@ class _ZoomedReviewCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(24),
+            border: Border.all(color: AppColors.warmGold, width: 1.5),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withValues(alpha: 0.2),
@@ -328,8 +325,8 @@ class _ZoomedReviewCard extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Text(
                     review['review'],
-                    style: TextStyle(
-                      color: colorScheme.primary,
+                    style: const TextStyle(
+                      color: AppColors.primaryBrown,
                       fontSize: 17,
                       fontStyle: FontStyle.italic,
                       height: 1.5,
@@ -342,11 +339,11 @@ class _ZoomedReviewCard extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 20,
-                    backgroundColor: colorScheme.primary.withValues(alpha: 0.1),
+                    backgroundColor: AppColors.primaryBrown.withValues(alpha: 0.1),
                     child: Text(
                       review['initial'],
-                      style: TextStyle(
-                        color: colorScheme.primary,
+                      style: const TextStyle(
+                        color: AppColors.primaryBrown,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -357,8 +354,8 @@ class _ZoomedReviewCard extends StatelessWidget {
                     children: [
                       Text(
                         review['name'],
-                        style: TextStyle(
-                          color: colorScheme.primary,
+                        style: const TextStyle(
+                          color: AppColors.primaryBrown,
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
                         ),

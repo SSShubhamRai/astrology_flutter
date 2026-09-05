@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../theme/app_colors.dart'; // Centralized AppColors import kiya gaya hai
 import '../widgets/custom_navbar.dart';
 import '../widgets/app_footer.dart';
 import '../widgets/consultation_info_section.dart';
@@ -13,9 +15,29 @@ import '../widgets/consultation_faq_section.dart';
 class ConsultationScreen extends StatelessWidget {
   const ConsultationScreen({super.key});
 
+  // Google Form open karne ki function
+  Future<void> _bookConsultation(BuildContext context) async {
+    final Uri url = Uri.parse('https://docs.google.com/forms/d/e/1FAIpQLSfheuBKfCbYE00rQsH9Yd50n9ap_i-uI5lVqGhnzOh37o6Pzg/viewform?usp=publish-editor'); // Yahan apna Google Form link paste karein
+    
+    try {
+      if (await canLaunchUrl(url)) {
+        await launchUrl(url, mode: LaunchMode.externalApplication);
+      } else {
+        throw 'Could not launch $url';
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Could not open booking form: $e')),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.creamBg,
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -27,7 +49,7 @@ class ConsultationScreen extends StatelessWidget {
                   constraints: const BoxConstraints(minHeight: 650),
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
-                      colors: [Color(0xFF3D1C06), Color(0xFF5B2C0E), Color(0xFF2A1203)],
+                      colors: [AppColors.primaryBrown, AppColors.deepBrown, Color(0xFF2A1203)],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                     ),
@@ -36,7 +58,7 @@ class ConsultationScreen extends StatelessWidget {
                       fit: BoxFit.cover,
                       alignment: Alignment.centerRight,
                       colorFilter: ColorFilter.mode(
-                        const Color(0xFF3D1C06).withValues(alpha: 0.6),
+                        AppColors.primaryBrown.withValues(alpha: 0.6),
                         BlendMode.darken,
                       ),
                     ),
@@ -58,19 +80,19 @@ class ConsultationScreen extends StatelessWidget {
                               Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
                                 decoration: BoxDecoration(
-                                  border: Border.all(color: const Color(0xFFD4A373).withValues(alpha: 0.6)),
+                                  border: Border.all(color: AppColors.warmGold.withValues(alpha: 0.6)),
                                   borderRadius: BorderRadius.circular(20),
                                   color: Colors.black.withValues(alpha: 0.3),
                                 ),
                                 child: const Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Icon(Icons.auto_awesome, color: Color(0xFFD4A373), size: 14),
+                                    Icon(Icons.auto_awesome, color: AppColors.warmGold, size: 14),
                                     SizedBox(width: 8),
                                     Text(
                                       'PERSONALIZED ASTROLOGY CONSULTATION',
                                       style: TextStyle(
-                                        color: Color(0xFFE6CCB2),
+                                        color: AppColors.borderBrown,
                                         fontSize: 11,
                                         fontWeight: FontWeight.bold,
                                         letterSpacing: 1.2,
@@ -98,7 +120,7 @@ class ConsultationScreen extends StatelessWidget {
                                 'Talk to experienced astrologers and get personalized guidance for the questions that matter most in your life.',
                                 style: TextStyle(
                                   fontSize: 16,
-                                  color: Color(0xFFE6CCB2),
+                                  color: AppColors.borderBrown,
                                   height: 1.6,
                                 ),
                               ),
@@ -111,13 +133,13 @@ class ConsultationScreen extends StatelessWidget {
                                   color: Colors.white.withValues(alpha: 0.95),
                                   borderRadius: BorderRadius.circular(30),
                                 ),
-                                child: Row(
+                                child: const Row(
                                   mainAxisSize: MainAxisSize.min,
-                                  children: const [
+                                  children: [
                                     Text(
                                       '50K+ Happy Customers',
                                       style: TextStyle(
-                                        color: Color(0xFF5B2C0E),
+                                        color: AppColors.deepBrown,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 13,
                                       ),
@@ -129,7 +151,7 @@ class ConsultationScreen extends StatelessWidget {
                                     Text(
                                       'Trusted Guidance',
                                       style: TextStyle(
-                                        color: Color(0xFF5B2C0E),
+                                        color: AppColors.deepBrown,
                                         fontWeight: FontWeight.w600,
                                         fontSize: 13,
                                       ),
@@ -142,15 +164,11 @@ class ConsultationScreen extends StatelessWidget {
                               // CTA Button
                               Container(
                                 decoration: BoxDecoration(
-                                  gradient: const LinearGradient(
-                                    colors: [Color(0xFFE9C46A), Color(0xFFD4A373)],
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                  ),
+                                  gradient: AppColors.goldGradient,
                                   borderRadius: BorderRadius.circular(30),
                                   boxShadow: [
                                     BoxShadow(
-                                      color: const Color(0xFFD4A373).withValues(alpha: 0.4),
+                                      color: AppColors.warmGold.withValues(alpha: 0.4),
                                       blurRadius: 12,
                                       offset: const Offset(0, 4),
                                     ),
@@ -160,13 +178,13 @@ class ConsultationScreen extends StatelessWidget {
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.transparent,
                                     shadowColor: Colors.transparent,
-                                    foregroundColor: const Color(0xFF5B2C0E),
+                                    foregroundColor: AppColors.deepBrown,
                                     padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 18),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(30),
                                     ),
                                   ),
-                                  onPressed: () {},
+                                  onPressed: () => _bookConsultation(context),
                                   child: const Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
@@ -194,8 +212,7 @@ class ConsultationScreen extends StatelessWidget {
                 const HowItWorksSection(),
                 const ExpertPlansSection(),
                 const VastuConsultantSection(),
-               
-                ConsultationFaqSection(),
+                const ConsultationFaqSection(),
                 const CtaBannerSection(),
 
                 // 2. FOOTER

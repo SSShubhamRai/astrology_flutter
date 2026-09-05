@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
+import '../theme/app_colors.dart'; // Centralized AppColors import kiya gaya hai
 
 class WhyChooseUsSection extends StatefulWidget {
   const WhyChooseUsSection({super.key});
@@ -11,7 +12,7 @@ class WhyChooseUsSection extends StatefulWidget {
 
 class _WhyChooseUsSectionState extends State<WhyChooseUsSection> {
   late final YoutubePlayerController _controller;
-  int _selectedIndex = 1; // By default 1st index (Personalized Guidance) selected hai, aap ise 0 ya -1 bhi kar sakte hain
+  int _selectedIndex = 1; // By default 1st index (Personalized Guidance) selected hai
 
   @override
   void initState() {
@@ -37,7 +38,7 @@ class _WhyChooseUsSectionState extends State<WhyChooseUsSection> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: const Color(0xFFFDFBF7),
+      color: AppColors.creamBg, // Centralized cream background tone
       padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 80),
       child: LayoutBuilder(
         builder: (context, constraints) {
@@ -77,7 +78,7 @@ class _WhyChooseUsSectionState extends State<WhyChooseUsSection> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: const Color(0xFFD4A373).withValues(alpha: 0.4), width: 1.2),
+        border: Border.all(color: AppColors.warmGold.withValues(alpha: 0.4), width: 1.2),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.05),
@@ -103,19 +104,19 @@ class _WhyChooseUsSectionState extends State<WhyChooseUsSection> {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
           decoration: BoxDecoration(
-            border: Border.all(color: const Color(0xFFD4A373).withValues(alpha: 0.6)),
+            border: Border.all(color: AppColors.warmGold.withValues(alpha: 0.6)),
             borderRadius: BorderRadius.circular(20),
-            color: const Color(0xFF5B2C0E).withValues(alpha: 0.05),
+            color: AppColors.deepBrown.withValues(alpha: 0.05),
           ),
           child: const Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(Icons.auto_awesome, color: Color(0xFF5B2C0E), size: 14),
+              Icon(Icons.auto_awesome, color: AppColors.deepBrown, size: 14),
               SizedBox(width: 8),
               Text(
                 'WHY CHOOSE US',
                 style: TextStyle(
-                  color: Color(0xFF5B2C0E),
+                  color: AppColors.deepBrown,
                   fontSize: 11,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.2,
@@ -130,7 +131,7 @@ class _WhyChooseUsSectionState extends State<WhyChooseUsSection> {
           style: GoogleFonts.playfairDisplay(
             fontSize: 42,
             fontWeight: FontWeight.bold,
-            color: const Color(0xFF5B2C0E),
+            color: AppColors.primaryBrown,
             height: 1.2,
           ),
         ),
@@ -139,7 +140,7 @@ class _WhyChooseUsSectionState extends State<WhyChooseUsSection> {
           'Get thoughtful guidance, personalized insights, and practical direction for the questions that matter most to you.',
           style: TextStyle(
             fontSize: 15,
-            color: Color(0xFF7F4F24),
+            color: AppColors.subtitleBrown,
             height: 1.5,
           ),
         ),
@@ -170,15 +171,11 @@ class _WhyChooseUsSectionState extends State<WhyChooseUsSection> {
 
         Container(
           decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              colors: [Color(0xFFE9C46A), Color(0xFFD4A373)],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
+            gradient: AppColors.goldGradient, // Centralized gold gradient token
             borderRadius: BorderRadius.circular(30),
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFFD4A373).withValues(alpha: 0.4),
+                color: AppColors.warmGold.withValues(alpha: 0.4),
                 blurRadius: 10,
                 offset: const Offset(0, 4),
               ),
@@ -188,7 +185,7 @@ class _WhyChooseUsSectionState extends State<WhyChooseUsSection> {
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.transparent,
               shadowColor: Colors.transparent,
-              foregroundColor: const Color(0xFF5B2C0E),
+              foregroundColor: AppColors.primaryBrown,
               padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 16),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
@@ -222,9 +219,9 @@ class _WhyChooseUsSectionState extends State<WhyChooseUsSection> {
     final bool isSelected = _selectedIndex == index;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _selectedIndex = index), // Mouse hover karne par card highlight hoga
+      onEnter: (_) => setState(() => _selectedIndex = index),
       child: GestureDetector(
-        onTap: () => setState(() => _selectedIndex = index), // Tap karne par bhi highlight hoga
+        onTap: () => setState(() => _selectedIndex = index),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
           padding: const EdgeInsets.all(18),
@@ -232,7 +229,7 @@ class _WhyChooseUsSectionState extends State<WhyChooseUsSection> {
             color: Colors.white,
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
-              color: isSelected ? const Color(0xFFD4A373) : Colors.grey.withValues(alpha: 0.2),
+              color: isSelected ? AppColors.warmGold : Colors.grey.withValues(alpha: 0.2),
               width: isSelected ? 1.5 : 1,
             ),
             boxShadow: [
@@ -249,13 +246,13 @@ class _WhyChooseUsSectionState extends State<WhyChooseUsSection> {
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   color: isSelected
-                      ? const Color(0xFF5B2C0E)
-                      : const Color(0xFF5B2C0E).withValues(alpha: 0.08),
+                      ? AppColors.primaryBrown
+                      : AppColors.primaryBrown.withValues(alpha: 0.08),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Icon(
                   icon,
-                  color: isSelected ? Colors.white : const Color(0xFF5B2C0E),
+                  color: isSelected ? Colors.white : AppColors.primaryBrown,
                   size: 24,
                 ),
               ),
@@ -269,7 +266,7 @@ class _WhyChooseUsSectionState extends State<WhyChooseUsSection> {
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF5B2C0E),
+                        color: AppColors.primaryBrown,
                       ),
                     ),
                     const SizedBox(height: 4),

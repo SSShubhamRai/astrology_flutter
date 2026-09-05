@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../theme/app_colors.dart'; // Centralized AppColors import kiya gaya hai
 
 class SpotlightVideosSection extends StatefulWidget {
   const SpotlightVideosSection({super.key});
@@ -111,33 +113,31 @@ class _SpotlightVideosSectionState extends State<SpotlightVideosSection> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
     final categories = ['ALL', 'LIFE INSIGHTS', 'CORE NUMBERS', 'FINANCE', 'RELATIONSHIPS', 'ADVANCED'];
 
     return Container(
       width: double.infinity,
-      color: Theme.of(context).scaffoldBackgroundColor,
+      color: AppColors.creamBg, // Centralized cream background tone
       padding: const EdgeInsets.symmetric(vertical: 70),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             'EXPLORE & DISCOVER',
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.bold,
               letterSpacing: 1.8,
-              color: colorScheme.secondary,
+              color: AppColors.warmGold, // Centralized warm gold color
             ),
           ),
           const SizedBox(height: 8),
           Text(
             'In the Spotlight',
-            style: TextStyle(
-              fontFamily: 'serif',
+            style: GoogleFonts.playfairDisplay(
               fontSize: 40,
               fontWeight: FontWeight.bold,
-              color: colorScheme.primary,
+              color: AppColors.primaryBrown, // Centralized primary brown color
             ),
           ),
           const SizedBox(height: 24),
@@ -157,16 +157,16 @@ class _SpotlightVideosSectionState extends State<SpotlightVideosSection> {
                     _selectedCategory = cat;
                   });
                 },
-                selectedColor: colorScheme.primary,
+                selectedColor: AppColors.primaryBrown,
                 backgroundColor: Colors.white,
                 labelStyle: TextStyle(
-                  color: isSelected ? Colors.white : colorScheme.primary,
+                  color: isSelected ? Colors.white : AppColors.primaryBrown,
                   fontWeight: FontWeight.bold,
                   fontSize: 12,
                 ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
-                  side: BorderSide(color: colorScheme.primary.withValues(alpha: 0.3)),
+                  side: BorderSide(color: AppColors.warmGold.withValues(alpha: 0.5)),
                 ),
               );
             }).toList(),
@@ -233,6 +233,7 @@ class _SpotlightCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: AppColors.warmGold.withValues(alpha: 0.3)),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.1),
@@ -290,7 +291,7 @@ class _SpotlightCard extends StatelessWidget {
                       child: Text(
                         category,
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: AppColors.lightGold,
                           fontSize: 10,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1.2,
@@ -371,8 +372,9 @@ class _VideoPlayerDialogState extends State<_VideoPlayerDialog> {
       constraints: const BoxConstraints(maxWidth: 800, maxHeight: 520),
       child: Container(
         decoration: BoxDecoration(
-          color: const Color(0xFF1E1E1E),
+          color: AppColors.primaryBrown,
           borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: AppColors.warmGold, width: 1.5),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.5),
@@ -404,7 +406,7 @@ class _VideoPlayerDialogState extends State<_VideoPlayerDialog> {
                     children: [
                       // Watch on YouTube direct button
                       IconButton(
-                        icon: const Icon(Icons.open_in_new, color: Colors.white70, size: 20),
+                        icon: const Icon(Icons.open_in_new, color: AppColors.lightGold, size: 20),
                         tooltip: 'Watch on YouTube',
                         onPressed: _launchYouTube,
                       ),

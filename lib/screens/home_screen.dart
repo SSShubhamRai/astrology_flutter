@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:video_player/video_player.dart';
+import '../theme/app_colors.dart';
 import '../widgets/custom_navbar.dart';
 import '../widgets/expert_report_section.dart';
 import '../widgets/premium_report_section.dart';
@@ -84,27 +85,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: IgnorePointer(child: VideoPlayer(_controller)),
                                 ),
                               )
-                            : ColoredBox(
-                                color: const Color(0xFF5B2C0E),
-                                child: _videoError == null
-                                    ? const Center(child: CircularProgressIndicator(color: Colors.white))
-                                    : Center(
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(24),
-                                          child: Text(
-                                            'Unable to load background video:\n$_videoError',
-                                            textAlign: TextAlign.center,
-                                            style: const TextStyle(color: Colors.white),
-                                          ),
-                                        ),
-                                      ),
+                            : const ColoredBox(
+                                color: AppColors.deepBrown,
+                                child: Center(child: CircularProgressIndicator(color: Colors.white)),
                               ),
                       ),
 
                       // Semi-transparent overlay for the Hero Section
                       Positioned.fill(
                         child: Container(
-                          color: const Color(0xFF5B2C0E).withValues(alpha: 0.45),
+                          color: AppColors.deepBrown.withValues(alpha: 0.45),
                         ),
                       ),
 
@@ -132,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontSize: 16,
-                                    color: Color(0xFFE6CCB2),
+                                    color: AppColors.borderBrown,
                                     height: 1.5,
                                   ),
                                 ),
@@ -141,8 +131,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 // CTA Button
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xFFFDFBF7),
-                                    foregroundColor: const Color(0xFF5B2C0E),
+                                    backgroundColor: AppColors.creamBg,
+                                    foregroundColor: AppColors.deepBrown,
                                     padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(30),
@@ -170,9 +160,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   children: [
                                     Row(
                                       children: [
-                                        _buildAvatarCircle('A', const Color(0xFFD4A373), 0),
+                                        _buildAvatarCircle('A', AppColors.warmGold, 0),
                                         _buildAvatarCircle('R', const Color(0xFF9C4A1A), -12),
-                                        _buildAvatarCircle('S', const Color(0xFF5B2C0E), -24),
+                                        _buildAvatarCircle('S', AppColors.deepBrown, -24),
                                         _buildAvatarCircle('+', Colors.teal, -36),
                                       ],
                                     ),
@@ -262,7 +252,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       UserReviewsSection(),
                       FaqSection(),
                       AppFooter(),
-                      
                     ],
                   ),
                 ),
@@ -283,8 +272,8 @@ class _HomeScreenState extends State<HomeScreen> {
             bottom: 24,
             right: 24,
             child: FloatingActionButton(
-              backgroundColor: const Color(0xFFFDFBF7),
-              foregroundColor: const Color(0xFF5B2C0E),
+              backgroundColor: AppColors.creamBg,
+              foregroundColor: AppColors.deepBrown,
               onPressed: _toggleAudio,
               child: Icon(_isMuted ? Icons.volume_off : Icons.volume_up),
             ),
@@ -303,7 +292,7 @@ class _HomeScreenState extends State<HomeScreen> {
         decoration: BoxDecoration(
           color: color,
           shape: BoxShape.circle,
-          border: Border.all(color: const Color(0xFFFDFBF7), width: 2),
+          border: Border.all(color: AppColors.creamBg, width: 2),
         ),
         child: Center(
           child: Text(
@@ -326,7 +315,7 @@ class _HomeScreenState extends State<HomeScreen> {
       height: 90,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFFFDFBF7),
+        color: AppColors.creamBg,
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
@@ -341,10 +330,10 @@ class _HomeScreenState extends State<HomeScreen> {
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: const Color(0xFF5B2C0E).withValues(alpha: 0.08),
+              color: AppColors.deepBrown.withValues(alpha: 0.08),
               shape: BoxShape.circle,
             ),
-            child: Icon(icon, color: const Color(0xFF5B2C0E), size: 22),
+            child: Icon(icon, color: AppColors.deepBrown, size: 22),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -355,7 +344,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   title,
                   style: const TextStyle(
-                    color: Color(0xFF5B2C0E),
+                    color: AppColors.deepBrown,
                     fontWeight: FontWeight.bold,
                     fontSize: 13,
                   ),
@@ -366,7 +355,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   subtitle,
                   style: const TextStyle(
-                    color: Color(0xFFD4A373),
+                    color: AppColors.warmGold,
                     fontWeight: FontWeight.w600,
                     fontSize: 11,
                   ),

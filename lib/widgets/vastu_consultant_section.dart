@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../theme/app_colors.dart'; // Centralized AppColors import kiya gaya hai
 
 class VastuConsultantSection extends StatefulWidget {
   const VastuConsultantSection({super.key});
@@ -22,7 +23,7 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: const Color(0xFFFDFBF7),
+      color: AppColors.creamBg, // Centralized cream background tone
       padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 80),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -30,19 +31,19 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
             decoration: BoxDecoration(
-              border: Border.all(color: const Color(0xFFD4A373).withValues(alpha: 0.6)),
+              border: Border.all(color: AppColors.warmGold.withValues(alpha: 0.6)),
               borderRadius: BorderRadius.circular(20),
-              color: const Color(0xFF5B2C0E).withValues(alpha: 0.05),
+              color: AppColors.deepBrown.withValues(alpha: 0.05),
             ),
             child: const Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.auto_awesome, color: Color(0xFF5B2C0E), size: 14),
+                Icon(Icons.auto_awesome, color: AppColors.deepBrown, size: 14),
                 SizedBox(width: 8),
                 Text(
                   'EXPERT GUIDANCE',
                   style: TextStyle(
-                    color: Color(0xFF5B2C0E),
+                    color: AppColors.deepBrown,
                     fontSize: 11,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1.2,
@@ -57,7 +58,7 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
             style: GoogleFonts.playfairDisplay(
               fontSize: 42,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF5B2C0E),
+              color: AppColors.primaryBrown,
             ),
           ),
           const SizedBox(height: 12),
@@ -66,7 +67,7 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 15,
-              color: Color(0xFF7F4F24),
+              color: AppColors.subtitleBrown,
             ),
           ),
           const SizedBox(height: 50),
@@ -77,7 +78,7 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(24),
-              border: Border.all(color: const Color(0xFFD4A373).withValues(alpha: 0.4), width: 1.2),
+              border: Border.all(color: AppColors.warmGold.withValues(alpha: 0.4), width: 1.2),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withValues(alpha: 0.05),
@@ -135,9 +136,9 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
                   return Container(
-                    color: const Color(0xFF5B2C0E).withValues(alpha: 0.1),
+                    color: AppColors.deepBrown.withValues(alpha: 0.1),
                     child: const Center(
-                      child: Icon(Icons.person, size: 80, color: Color(0xFF5B2C0E)),
+                      child: Icon(Icons.person, size: 80, color: AppColors.deepBrown),
                     ),
                   );
                 },
@@ -150,7 +151,7 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
             decoration: BoxDecoration(
               color: Colors.white.withValues(alpha: 0.95),
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: const Color(0xFFD4A373).withValues(alpha: 0.4)),
+              border: Border.all(color: AppColors.warmGold.withValues(alpha: 0.4)),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withValues(alpha: 0.1),
@@ -168,7 +169,7 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
                   style: GoogleFonts.playfairDisplay(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xFF5B2C0E),
+                    color: AppColors.primaryBrown,
                   ),
                 ),
                 const SizedBox(height: 4),
@@ -192,7 +193,7 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
         children: [
           const Text(
             'Known For',
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Color(0xFF5B2C0E)),
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.primaryBrown),
           ),
           const SizedBox(height: 12),
           const Row(
@@ -200,7 +201,7 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
               Expanded(
                 child: Row(
                   children: [
-                    Icon(Icons.check_circle_outline, size: 16, color: Color(0xFFD4A373)),
+                    Icon(Icons.check_circle_outline, size: 16, color: AppColors.warmGold),
                     SizedBox(width: 8),
                     Text('Layout & energy analysis', style: TextStyle(fontSize: 13, color: Colors.grey)),
                   ],
@@ -209,7 +210,7 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
               Expanded(
                 child: Row(
                   children: [
-                    Icon(Icons.check_circle_outline, size: 16, color: Color(0xFFD4A373)),
+                    Icon(Icons.check_circle_outline, size: 16, color: AppColors.warmGold),
                     SizedBox(width: 8),
                     Text('Auspicious timing guidance', style: TextStyle(fontSize: 13, color: Colors.grey)),
                   ],
@@ -223,7 +224,7 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
               Expanded(
                 child: Row(
                   children: [
-                    Icon(Icons.check_circle_outline, size: 16, color: Color(0xFFD4A373)),
+                    Icon(Icons.check_circle_outline, size: 16, color: AppColors.warmGold),
                     SizedBox(width: 8),
                     Text('Practical Vastu remedies', style: TextStyle(fontSize: 13, color: Colors.grey)),
                   ],
@@ -232,7 +233,7 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
               Expanded(
                 child: Row(
                   children: [
-                    Icon(Icons.check_circle_outline, size: 16, color: Color(0xFFD4A373)),
+                    Icon(Icons.check_circle_outline, size: 16, color: AppColors.warmGold),
                     SizedBox(width: 8),
                     Text('Guidance for home & business', style: TextStyle(fontSize: 13, color: Colors.grey)),
                   ],
@@ -243,12 +244,12 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
           const Divider(height: 35, thickness: 1),
           const Text(
             'Consultation Details',
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Color(0xFF5B2C0E)),
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.primaryBrown),
           ),
           const SizedBox(height: 12),
           const Row(
             children: [
-              Icon(Icons.access_time_rounded, size: 16, color: Color(0xFFD4A373)),
+              Icon(Icons.access_time_rounded, size: 16, color: AppColors.warmGold),
               SizedBox(width: 10),
               Text('Consultation duration based on property requirements', style: TextStyle(fontSize: 13, color: Colors.grey)),
             ],
@@ -256,7 +257,7 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
           const SizedBox(height: 8),
           const Row(
             children: [
-              Icon(Icons.calendar_today_rounded, size: 16, color: Color(0xFFD4A373)),
+              Icon(Icons.calendar_today_rounded, size: 16, color: AppColors.warmGold),
               SizedBox(width: 10),
               Text('Appointment scheduled after booking', style: TextStyle(fontSize: 13, color: Colors.grey)),
             ],
@@ -264,15 +265,15 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
           const Divider(height: 35, thickness: 1),
           const Text(
             'SELECT PROPERTY SIZE',
-            style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Color(0xFF5B2C0E), letterSpacing: 1.0),
+            style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: AppColors.primaryBrown, letterSpacing: 1.0),
           ),
           const SizedBox(height: 14),
           Container(
             padding: const EdgeInsets.all(6),
             decoration: BoxDecoration(
-              color: const Color(0xFFFDFBF7),
+              color: AppColors.creamBg,
               borderRadius: BorderRadius.circular(30),
-              border: Border.all(color: const Color(0xFFD4A373).withValues(alpha: 0.4)),
+              border: Border.all(color: AppColors.warmGold.withValues(alpha: 0.4)),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -284,7 +285,7 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       decoration: BoxDecoration(
-                        color: isSelected ? const Color(0xFF5B2C0E) : Colors.transparent,
+                        color: isSelected ? AppColors.primaryBrown : Colors.transparent,
                         borderRadius: BorderRadius.circular(25),
                       ),
                       child: Text(
@@ -293,7 +294,7 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
                         style: TextStyle(
                           fontSize: 11.5,
                           fontWeight: FontWeight.bold,
-                          color: isSelected ? Colors.white : const Color(0xFF5B2C0E),
+                          color: isSelected ? Colors.white : AppColors.primaryBrown,
                         ),
                       ),
                     ),
@@ -318,22 +319,18 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
                   const SizedBox(height: 2),
                   Text(
                     _propertySizes[_selectedSizeIndex]['price'],
-                    style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Color(0xFF5B2C0E)),
+                    style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.primaryBrown),
                   ),
                   const Text('Inclusive of applicable taxes', style: TextStyle(fontSize: 10, color: Colors.grey)),
                 ],
               ),
               Container(
                 decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFFE9C46A), Color(0xFFD4A373)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
+                  gradient: AppColors.goldGradient, // Centralized gold gradient token
                   borderRadius: BorderRadius.circular(30),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0xFFD4A373).withValues(alpha: 0.4),
+                      color: AppColors.warmGold.withValues(alpha: 0.4),
                       blurRadius: 10,
                       offset: const Offset(0, 4),
                     ),
@@ -343,7 +340,7 @@ class _VastuConsultantSectionState extends State<VastuConsultantSection> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
                     shadowColor: Colors.transparent,
-                    foregroundColor: const Color(0xFF5B2C0E),
+                    foregroundColor: AppColors.primaryBrown,
                     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),

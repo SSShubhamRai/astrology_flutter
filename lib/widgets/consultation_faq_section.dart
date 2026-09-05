@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../theme/app_colors.dart'; // Centralized AppColors import kiya gaya hai
 
 class ConsultationFaqSection extends StatefulWidget {
   const ConsultationFaqSection({super.key});
@@ -46,19 +47,19 @@ class _ConsultationFaqSectionState extends State<ConsultationFaqSection> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
             decoration: BoxDecoration(
-              border: Border.all(color: const Color(0xFFD4A373).withValues(alpha: 0.6)),
+              border: Border.all(color: AppColors.warmGold.withValues(alpha: 0.6)),
               borderRadius: BorderRadius.circular(20),
-              color: const Color(0xFF5B2C0E).withValues(alpha: 0.05),
+              color: AppColors.deepBrown.withValues(alpha: 0.05),
             ),
             child: const Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.auto_awesome, color: Color(0xFF5B2C0E), size: 14),
+                Icon(Icons.auto_awesome, color: AppColors.deepBrown, size: 14),
                 SizedBox(width: 8),
                 Text(
                   'GOT QUESTIONS?',
                   style: TextStyle(
-                    color: Color(0xFF5B2C0E),
+                    color: AppColors.deepBrown,
                     fontSize: 11,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1.2,
@@ -73,7 +74,7 @@ class _ConsultationFaqSectionState extends State<ConsultationFaqSection> {
             style: GoogleFonts.playfairDisplay(
               fontSize: 42,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF5B2C0E),
+              color: AppColors.deepBrown,
             ),
           ),
           const SizedBox(height: 12),
@@ -81,7 +82,7 @@ class _ConsultationFaqSectionState extends State<ConsultationFaqSection> {
             'Find quick answers to common queries regarding our consultation services.',
             style: TextStyle(
               fontSize: 15,
-              color: Color(0xFF7F4F24),
+              color: AppColors.subtitleBrown,
             ),
           ),
           const SizedBox(height: 50),
@@ -93,10 +94,10 @@ class _ConsultationFaqSectionState extends State<ConsultationFaqSection> {
                 return Container(
                   margin: const EdgeInsets.only(bottom: 16),
                   decoration: BoxDecoration(
-                    color: isExpanded ? const Color(0xFFFFFBF0) : const Color(0xFFFDFBF7),
+                    color: isExpanded ? const Color(0xFFFFFBF0) : AppColors.creamBg,
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
-                      color: isExpanded ? const Color(0xFFD4A373) : const Color(0xFFD4A373).withValues(alpha: 0.3),
+                      color: isExpanded ? AppColors.warmGold : AppColors.warmGold.withValues(alpha: 0.3),
                       width: isExpanded ? 1.5 : 1.0,
                     ),
                     boxShadow: [
@@ -114,14 +115,14 @@ class _ConsultationFaqSectionState extends State<ConsultationFaqSection> {
                         _expandedIndex = expanded ? index : null;
                       });
                     },
-                    collapsedIconColor: const Color(0xFF5B2C0E),
-                    iconColor: const Color(0xFF5B2C0E),
+                    collapsedIconColor: AppColors.deepBrown,
+                    iconColor: AppColors.deepBrown,
                     title: Text(
                       _faqs[index]['question']!,
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF5B2C0E),
+                        color: AppColors.deepBrown,
                       ),
                     ),
                     children: [
@@ -131,7 +132,7 @@ class _ConsultationFaqSectionState extends State<ConsultationFaqSection> {
                           _faqs[index]['answer']!,
                           style: TextStyle(
                             fontSize: 14,
-                            color: Colors.grey[700],
+                            color: AppColors.subtitleBrown,
                             height: 1.5,
                           ),
                         ),

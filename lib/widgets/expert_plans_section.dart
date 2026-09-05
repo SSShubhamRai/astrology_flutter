@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../theme/app_colors.dart'; // Centralized AppColors import kiya gaya hai
 
 class ExpertPlansSection extends StatefulWidget {
   const ExpertPlansSection({super.key});
@@ -16,7 +17,7 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: const Color(0xFFFDFBF7),
+      color: AppColors.creamBg, // Centralized cream background tone
       padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 80),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -24,19 +25,19 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
             decoration: BoxDecoration(
-              border: Border.all(color: const Color(0xFFD4A373).withValues(alpha: 0.6)),
+              border: Border.all(color: AppColors.warmGold.withValues(alpha: 0.6)),
               borderRadius: BorderRadius.circular(20),
-              color: const Color(0xFF5B2C0E).withValues(alpha: 0.05),
+              color: AppColors.deepBrown.withValues(alpha: 0.05),
             ),
             child: const Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.auto_awesome, color: Color(0xFF5B2C0E), size: 14),
+                Icon(Icons.auto_awesome, color: AppColors.deepBrown, size: 14),
                 SizedBox(width: 8),
                 Text(
                   'EXPERT GUIDANCE PLANS',
                   style: TextStyle(
-                    color: Color(0xFF5B2C0E),
+                    color: AppColors.deepBrown,
                     fontSize: 11,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1.2,
@@ -51,7 +52,7 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
             style: GoogleFonts.playfairDisplay(
               fontSize: 42,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF5B2C0E),
+              color: AppColors.deepBrown,
             ),
           ),
           const SizedBox(height: 12),
@@ -59,7 +60,7 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
             'Select a consultation tier that best fits your requirements and timeline.',
             style: TextStyle(
               fontSize: 15,
-              color: Color(0xFF7F4F24),
+              color: AppColors.subtitleBrown,
             ),
           ),
           const SizedBox(height: 50),
@@ -124,12 +125,12 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
               color: isHighlighted ? const Color(0xFFFFFBF0) : Colors.white,
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
-                color: isHighlighted ? const Color(0xFFD4A373) : const Color(0xFFD4A373).withValues(alpha: 0.4),
+                color: isHighlighted ? AppColors.warmGold : AppColors.warmGold.withValues(alpha: 0.4),
                 width: isHighlighted ? 1.8 : 1.0,
               ),
               boxShadow: [
                 BoxShadow(
-                  color: isHighlighted ? const Color(0xFFD4A373).withValues(alpha: 0.2) : Colors.black.withValues(alpha: 0.04),
+                  color: isHighlighted ? AppColors.warmGold.withValues(alpha: 0.2) : Colors.black.withValues(alpha: 0.04),
                   blurRadius: isHighlighted ? 22 : 12,
                   offset: const Offset(0, 6),
                 ),
@@ -141,14 +142,14 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   decoration: BoxDecoration(
-                    color: isHighlighted ? const Color(0xFFD4A373) : const Color(0xFFFAF3E0),
+                    color: isHighlighted ? AppColors.warmGold : const Color(0xFFFAF3E0),
                     borderRadius: const BorderRadius.vertical(top: Radius.circular(19)),
                   ),
                   child: Text(
                     badgeText,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: isHighlighted ? Colors.white : const Color(0xFF5B2C0E),
+                      color: isHighlighted ? Colors.white : AppColors.deepBrown,
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1.0,
@@ -156,7 +157,7 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
                   ),
                 ),
                 Expanded(
-                  child: SingleChildScrollView( // <-- FIX: Added SingleChildScrollView to prevent overflow
+                  child: SingleChildScrollView(
                     padding: const EdgeInsets.all(24.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -167,8 +168,8 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
                             height: 70,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: const Color(0xFF5B2C0E).withValues(alpha: 0.06),
-                              border: Border.all(color: const Color(0xFFD4A373).withValues(alpha: 0.4)),
+                              color: AppColors.deepBrown.withValues(alpha: 0.06),
+                              border: Border.all(color: AppColors.warmGold.withValues(alpha: 0.4)),
                             ),
                             child: const Center(
                               child: Text(
@@ -176,7 +177,7 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
                                 style: TextStyle(
                                   fontSize: 26,
                                   fontWeight: FontWeight.bold,
-                                  color: Color(0xFFD4A373),
+                                  color: AppColors.warmGold,
                                 ),
                               ),
                             ),
@@ -188,7 +189,7 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
                           style: GoogleFonts.playfairDisplay(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: const Color(0xFF5B2C0E),
+                            color: AppColors.deepBrown,
                           ),
                         ),
                         const SizedBox(height: 6),
@@ -199,7 +200,7 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
                         const Divider(height: 30, thickness: 1),
                         const Text(
                           'KNOWN FOR',
-                          style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Color(0xFF5B2C0E), letterSpacing: 1.0),
+                          style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: AppColors.deepBrown, letterSpacing: 1.0),
                         ),
                         const SizedBox(height: 10),
                         ...knownForList.map((item) => Padding(
@@ -207,7 +208,7 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Icon(Icons.check, size: 14, color: Color(0xFFD4A373)),
+                                  const Icon(Icons.check, size: 14, color: AppColors.warmGold),
                                   const SizedBox(width: 8),
                                   Expanded(
                                     child: Text(item, style: TextStyle(fontSize: 12.5, color: Colors.grey[800], height: 1.3)),
@@ -218,14 +219,14 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
                         const Divider(height: 25, thickness: 1),
                         const Text(
                           'CONSULTATION DETAILS',
-                          style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Color(0xFF5B2C0E), letterSpacing: 1.0),
+                          style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: AppColors.deepBrown, letterSpacing: 1.0),
                         ),
                         const SizedBox(height: 10),
                         ...detailsList.map((detail) => Padding(
                               padding: const EdgeInsets.only(bottom: 8.0),
                               child: Row(
                                 children: [
-                                  const Icon(Icons.access_time_rounded, size: 14, color: Color(0xFFD4A373)),
+                                  const Icon(Icons.access_time_rounded, size: 14, color: AppColors.warmGold),
                                   const SizedBox(width: 8),
                                   Expanded(
                                     child: Text(detail, style: TextStyle(fontSize: 12.5, color: Colors.grey[800])),
@@ -236,15 +237,15 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
                         const Divider(height: 25, thickness: 1),
                         const Text(
                           'CHOOSE MODE',
-                          style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Color(0xFF5B2C0E), letterSpacing: 1.0),
+                          style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: AppColors.deepBrown, letterSpacing: 1.0),
                         ),
                         const SizedBox(height: 10),
                         Container(
                           padding: const EdgeInsets.all(4),
                           decoration: BoxDecoration(
-                            color: const Color(0xFFFDFBF7),
+                            color: AppColors.creamBg,
                             borderRadius: BorderRadius.circular(25),
-                            border: Border.all(color: const Color(0xFFD4A373).withValues(alpha: 0.4)),
+                            border: Border.all(color: AppColors.warmGold.withValues(alpha: 0.4)),
                           ),
                           child: Row(
                             children: [
@@ -254,7 +255,7 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
                                   child: Container(
                                     padding: const EdgeInsets.symmetric(vertical: 8),
                                     decoration: BoxDecoration(
-                                      color: isNormal ? const Color(0xFF5B2C0E) : Colors.transparent,
+                                      color: isNormal ? AppColors.deepBrown : Colors.transparent,
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                     child: Text(
@@ -263,7 +264,7 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
                                       style: TextStyle(
                                         fontSize: 13,
                                         fontWeight: FontWeight.bold,
-                                        color: isNormal ? Colors.white : const Color(0xFF5B2C0E),
+                                        color: isNormal ? Colors.white : AppColors.deepBrown,
                                       ),
                                     ),
                                   ),
@@ -275,7 +276,7 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
                                   child: Container(
                                     padding: const EdgeInsets.symmetric(vertical: 8),
                                     decoration: BoxDecoration(
-                                      color: !isNormal ? const Color(0xFF5B2C0E) : Colors.transparent,
+                                      color: !isNormal ? AppColors.deepBrown : Colors.transparent,
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                     child: Text(
@@ -284,7 +285,7 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
                                       style: TextStyle(
                                         fontSize: 13,
                                         fontWeight: FontWeight.bold,
-                                        color: !isNormal ? Colors.white : const Color(0xFF5B2C0E),
+                                        color: !isNormal ? Colors.white : AppColors.deepBrown,
                                       ),
                                     ),
                                   ),
@@ -304,7 +305,7 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
                                 const SizedBox(height: 2),
                                 Text(
                                   isNormal ? normalPrice : urgentPrice,
-                                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xFF5B2C0E)),
+                                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.deepBrown),
                                 ),
                                 Text(
                                   isNormal ? 'Standard consultation' : 'Priority consultation',
@@ -314,15 +315,11 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                  colors: [Color(0xFFE9C46A), Color(0xFFD4A373)],
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                ),
+                                gradient: AppColors.goldGradient,
                                 borderRadius: BorderRadius.circular(30),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: const Color(0xFFD4A373).withValues(alpha: 0.4),
+                                    color: AppColors.warmGold.withValues(alpha: 0.4),
                                     blurRadius: 8,
                                     offset: const Offset(0, 3),
                                   ),
@@ -332,7 +329,7 @@ class _ExpertPlansSectionState extends State<ExpertPlansSection> {
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.transparent,
                                   shadowColor: Colors.transparent,
-                                  foregroundColor: const Color(0xFF5B2C0E),
+                                  foregroundColor: AppColors.deepBrown,
                                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(30),
